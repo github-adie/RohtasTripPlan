@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip Locations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        nav {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .nav-toggle {
+            display: none; /* Hide checkbox */
+        }
+
+        .nav-toggle-label {
+            cursor: pointer;
+            display: block;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            z-index: 2;
+            text-align: center;
+            line-height: 40px;
+        }
+
+        .nav-toggle-label span {
+            display: block;
+            background-color: #fff;
+            height: 2px;
+            width: 20px;
+            margin-top: 19px;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-toggle:checked + .nav-toggle-label span {
+            transform: rotate(45deg);
+        }
+
+        .nav-toggle:checked + .nav-toggle-label::after {
+            content: '';
+            display: block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+
+        .nav-menu {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 100%;
+            background-color: #333;
+            transform: translateX(200px);
+            transition: transform 0.3s ease;
+            z-index: 2;
+        }
+
+        .nav-toggle:checked + .nav-toggle-label + .nav-menu {
+            transform: translateX(0);
+        }
+
+        .nav-menu li {
+            padding: 10px 0;
+            border-bottom: 1px solid #555;
+        }
+
+        .nav-menu li:last-child {
+            border-bottom: none;
+        }
+
+        .nav-menu a {
+            display: block;
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            background-color: #555;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: filter 0.3s ease; /* Add transition for blur effect */
+        }
+
+        .nav-toggle:checked ~ main {
+            filter: blur(5px); /* Blur main content on toggle */
+        }
+
+        .location {
+            width: 100%; /* Full width for responsiveness */
+            margin-bottom: 20px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .location:hover {
+            transform: scale(1.05); /* Scale up on hover */
+        }
+
+        .location img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px;
+        }
+
+        .location .overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            padding: 10px;
+            box-sizing: border-box;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .location:hover .overlay {
+            transform: translateY(0); /* Slide up on hover */
+        }
+
+        .location h2 {
+            margin: 0;
+            font-size: 1.2rem;
+            text-align: center;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            margin-bottom: 20px;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="nav-toggle-label"><span></span></label>
+    <nav class="nav-menu">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="plan.html">Plan Info</a></li>
+        </ul>
+    </nav>
+    
+    <header>
+        <h1>Trip Locations</h1>
+    </header>
+    
+    <main>
+        <section id="location1" class="location">
+            <a href="https://bihartourism.gov.in/destination/rohtas/">
+                <img src="https://tourism.bihar.gov.in/content/dam/bihar-tourism/images/category_b/rohtas/manjhar_kund___dhuan_kund_sasaram/nature_rohtas_category_b_dhuan_kund_pic_04.jpg/jcr:content/renditions/cq5dam.web.1280.765.jpeg" alt="Manjhar Kund and Dhua Kund">
+                <div class="overlay">
+                    <h2>Manjhar Kund and Dhua Kund</h2>
+                    <p>Description of Manjhar Kund and Dhua Kund...</p>
+                </div>
+            </a>
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/UKNizgMAU5M?si=UjTz_-9VS6xr-_jC" title="Manjhar Kund and Dhua Kund YouTube Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </section>
+        
+        <section id="location2" class="location">
+            <a href="https://bihartourism.gov.in/destination/sasaram/">
+                <img src="https://www.researchgate.net/profile/Mohammad-Arif-Kamal/publication/353480903/figure/fig2/AS:1050097823543298@1627374239629/Ariel-View-of-Sher-Shah-Suris-Tomb-Located-in-Sasaram-Bihar.png" alt="Sher Shah Suri Tomb">
+                <div class="overlay">
+                    <h2>Sher Shah Suri Tomb</h2>
+                    <p>Description of Sher Shah Suri Tomb...</p>
+                </div>
+            </a>
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/GJKeDmNVUaU?si=DHdu_MX2zsS0IYok" title="Sher Shah Suri Tomb YouTube Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </section>
+        
+        <section id="location3" class="location">
+            <a href="https://bihartourism.gov.in/destination/tutla-bhawani-waterfall/">
+                <img src="https://tourism.bihar.gov.in/content/dam/bihar-tourism/images/category_b/rohtas/tutla_bhawani_waterfall__rohtas/nature_rohtas_category_b_tutla_bhawani_pic_02.jpg/jcr:content/renditions/cq5dam.web.2000.765.jpeg" alt="Tutla Bhawani Waterfall">
+                <div class="overlay">
+                    <h2>Tutla Bhawani Waterfall</h2>
+                    <p>Description of Tutla Bhawani Waterfall...</p>
+                </div>
+            </a>
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/bZEunGtkp7E?si=JjVqiTBr88rcOdd3" title="Tutla Bhawani Waterfall YouTube Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </section>
+        
+        <section id="location4" class="location">
+            <a href="https://bihartourism.gov.in/destination/rohtasgarh/">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Rohtasgarh_fort.jpg/1200px-Rohtasgarh_fort.jpg" alt="Rohtasgarh Fort">
+                <div class="overlay">
+                    <h2>Rohtasgarh Fort</h2>
+                    <p>Description of Rohtasgarh Fort...</p>
+                </div>
+            </a>
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/WZYOT2A7mPs?si=R0JqCYfQW8BB3Las" title="Rohtasgarh Fort YouTube Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </section>
+        
+        <section id="location5" class="location">
+            <a href="https://bihartourism.gov.in/destination/kaimur/">
+                <img src="https://pbs.twimg.com/media/EySiZH2VgAEXi_1.jpg:large" alt="Charamchat Dam">
+                <div class="overlay">
+                    <h2>Charamchat Dam</h2>
+                    <p>Description of Charamchat Dam...</p>
+                </div>
+            </a>
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/GahiAkjN7Rs?si=6nxQ9NP_zx9pGgsh" title="Charamchat Dam YouTube Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // JavaScript for toggling navigation menu
+        const navToggle = document.getElementById('nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('open');
+        });
+    </script>
+</body>
+</html>
