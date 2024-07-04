@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip Plan and Costs</title>
+    <style>
+        /* Reset and basic styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .route-link {
+            display: block;
+            margin-top: 20px;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+        }
+
+        /* Google Map */
+        .google-map {
+            width: 100%;
+            height: 400px;
+            margin-top: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Trip Itinerary and Costs</h1>
+        
+        <h2>Total Distance:</h2>
+        <ul>
+            <li>Patna to Manjhar Kund and Dhua Kund: 140 km</li>
+            <li>Manjhar Kund and Dhua Kund to Sher Shah Suri Tomb: 5 km</li>
+            <li>Sher Shah Suri Tomb to Tutla Bhawani Waterfall: 5 km</li>
+            <li>Tutla Bhawani Waterfall to Rohtas Fort: 20 km</li>
+            <li>Rohtas Fort to Charamchat Dam: 40 km</li>
+            <li>Charamchat Dam to Patna: 140 km</li>
+        </ul>
+        <p><strong>Total Distance: 350 km</strong></p>
+
+        <h2>Fuel Calculation:</h2>
+        <ul>
+            <li>Mileage: 20 km/l</li>
+            <li>Fuel Price: ₹107 per litre</li>
+            <li>Total Fuel Needed: 17.5 litres</li>
+            <li><strong>Total Fuel Cost: ₹1872.50</strong></li>
+        </ul>
+
+        <h2>Suggested Itinerary with Costs:</h2>
+        <ul>
+            <li><strong>Early Morning:</strong></li>
+            <li>Start: Patna (4:30 AM)</li>
+            <li>Travel to Manjhar Kund and Dhua Kund (2 hours 45 minutes, 140 km)</li>
+            <li>Arrival: 7:15 AM</li>
+            <li><strong>Morning:</strong></li>
+            <li>Explore Manjhar Kund and Dhua Kund (7:15 AM - 8:15 AM)</li>
+            <li>Travel to Sher Shah Suri Tomb (15 minutes, 5 km)</li>
+            <li>Arrival: 8:30 AM</li>
+            <li><strong>Mid-Morning:</strong></li>
+            <li>Explore Sher Shah Suri Tomb (8:30 AM - 9:30 AM)</li>
+            <li>Travel to Tutla Bhawani Waterfall (15 minutes, 5 km)</li>
+            <li>Arrival: 9:45 AM</li>
+            <li><strong>Late Morning:</strong></li>
+            <li>Explore Tutla Bhawani Waterfall (9:45 AM - 11:00 AM)</li>
+            <li>Travel to Rohtas Fort (45 minutes, 20 km)</li>
+            <li>Arrival: 11:45 AM</li>
+            <li><strong>Afternoon:</strong></li>
+            <li>Explore Rohtas Fort (11:45 AM - 1:15 PM)</li>
+            <li>Lunch Break: 1:15 PM - 2:00 PM</li>
+            <li>Travel to Charamchat Dam (1 hour, 40 km)</li>
+            <li>Arrival: 3:00 PM</li>
+            <li><strong>Late Afternoon:</strong></li>
+            <li>Explore Charamchat Dam (3:00 PM - 4:00 PM)</li>
+            <li>Return Travel: Charamchat Dam to Patna (3 hours, 140 km)</li>
+            <li>Arrival: 7:00 PM</li>
+        </ul>
+
+        <h2>Cost Breakdown:</h2>
+        <ul>
+            <li><strong>Total Distance: 350 km</strong></li>
+            <li><strong>Total Fuel Needed: 17.5 litres</strong></li>
+            <li><strong>Total Fuel Cost: ₹1872.50</strong></li>
+        </ul>
+
+        <h2>Route Guidance:</h2>
+        <p>For detailed route guidance, you can use Google Maps: <a href="https://www.google.com/maps/dir/Patna/Manjhar+Kund+and+Dhua+Kund/Sher+Shah+Suri+Tomb/Tutla+Bhawani+Waterfall/Rohtas+Fort/Charamchat+Dam/Patna/" target="_blank" class="route-link">Patna to Tutla Bhawani Waterfall and Charamchat Dam</a></p>
+
+        <!-- Google Map Embed -->
+        <div class="google-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d28596.088798625826!2d84.00091581530106!3d24.94712852419239!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f200a35b654b15%3A0x4d8e8f17612a20c6!2sPatna%2C%20Bihar!5e0!3m2!1sen!2sin!4v1626883510768!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+</body>
+</html>
